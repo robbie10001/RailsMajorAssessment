@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 get "/", to: "coins#index", as: "root"
-get "/predecimal", to: "coins#predecimal", as: "predecimal"
-get "/postdecimal", to: "coins#postdecimal", as: "postdecimal"
+get "/buycoins", to: "coins#buycoins", as: "buycoins"
+get "/buycoins/predecimal", to: "coins#predecimal", as: "predecimal"
+get "/buycoins/postdecimal", to: "coins#postdecimal", as: "postdecimal"
+get "/buycoins/postdecimal/search", to: "coins#predecimalsearch", as: "postdecimalsearch"
+get "/buycoins/predecimal/search", to: "coins#predecimalsearch", as: "predecimalsearch"
+get "/buycoins/contact", to: "coins#contact", as: "contactus"
+
+
 get "/forsale", to: "coins#forsale", as: "forsale"
 post "/forsale", to: "coins#forsale", as: "listcoin"
 patch "/forsale", to: "coins#forsale", as: "updatecoin"

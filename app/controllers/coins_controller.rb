@@ -28,7 +28,14 @@ class CoinsController < ApplicationController
 
     end 
     
+    def buycoins
+    
+    end
 
+
+    def contact
+
+    end 
 
 
     
