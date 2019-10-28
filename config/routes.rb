@@ -6,6 +6,7 @@ get "/buycoins/predecimal", to: "coins#predecimal", as: "predecimal"
 get "/buycoins/postdecimal", to: "coins#postdecimal", as: "postdecimal"
 get "/buycoins/postdecimal/search", to: "coins#predecimalsearch", as: "postdecimalsearch"
 get "/buycoins/predecimal/search", to: "coins#predecimalsearch", as: "predecimalsearch"
+get "/buycoins/postdecimal/:denomination", to: "coins#postdecimalsearch", as: "newcoin"
 get "/buycoins/contact", to: "coins#contact", as: "contactus"
 
 
