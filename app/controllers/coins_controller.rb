@@ -17,7 +17,7 @@ class CoinsController < ApplicationController
     end
 
 
-    def listings 
+    def listing 
 
 
     end 
@@ -37,6 +37,12 @@ class CoinsController < ApplicationController
 
     end 
 
+    def update
 
+    end
+
+    def updatecoin
+
+    end
     
 end 

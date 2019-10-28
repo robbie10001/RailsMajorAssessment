@@ -6,10 +6,19 @@ get "/buycoins/predecimal", to: "coins#predecimal", as: "predecimal"
 get "/buycoins/postdecimal", to: "coins#postdecimal", as: "postdecimal"
 get "/buycoins/postdecimal/search", to: "coins#predecimalsearch", as: "postdecimalsearch"
 get "/buycoins/predecimal/search", to: "coins#predecimalsearch", as: "predecimalsearch"
-get "/buycoins/postdecimal/:denomination", to: "coins#postdecimalsearch", as: "newcoin"
+get "/buycoins/postdecimal/:denomination", to: "coins#postdecimalsearch", as: "coindenomination"
 get "/buycoins/contact", to: "coins#contact", as: "contactus"
+get "/listing", to: "coins#listing", as: "listing"
+post "/listing", to: "coins#listing", as: "newcoin"
+patch "/listing", to: "coins#listing", as: "updatecoin"
+delete "/listing", to: "coins#listing", as: "deletecoin"
+get "/signin", to: "coins#signin", as: "signin"
+patch "/signin", to: "coins#signin", as: "updateprofile"
+delete "/signin", to: "coins#signin", as: "deleteprofile"
+post "/signin", to: "coins#signin", as: "createprofile"
 
 
+=begin
 get "/forsale", to: "coins#forsale", as: "forsale"
 post "/forsale", to: "coins#forsale", as: "listcoin"
 patch "/forsale", to: "coins#forsale", as: "updatecoin"
@@ -19,18 +28,11 @@ get "/signin", to: "coins#signin", as: "signin"
 post "/signin", to: "coins#signin", as: "updateprofile"
 delete "/sigin", to: "coins#signin", as: "deleteprofile"
 post "/signin", to: "coins#signin", as: "createprofile"
+=end
+
 
 
 end 
 
 
-=begin
-post "/coins", to: "coins#create"
-get "/coins/new", to: "coins#new", as: "new_coin"
-get "/coins/:id/edit", to: "coins#edit", as: "edit_coin"
-get "/coins/:id", to: "coins#show", as: "coin"
-patch "/coins/:id", to: "coins#update"
-put "/coins/:id", to: "coins#update"
-delete "/coins/:id", to: "coins#destroy"
-end
-=end
+
