@@ -8,8 +8,7 @@ class CreateCoins < ActiveRecord::Migration[5.2]
       t.integer :condition
       t.boolean :post_decimal
       t.integer :mint_year
-
-      t.timestamps
+      t.references :user, foreign_key: true
     end
   end
 end
