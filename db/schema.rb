@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 2019_10_29_045904) do
   end
 
   create_table "coins", force: :cascade do |t|
-    t.bigint "user_id"
     t.string "denomination"
     t.text "description"
     t.integer "price"
     t.integer "condition"
     t.boolean "post_decimal"
     t.integer "mint_year"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_coins_on_user_id"
   end
 
