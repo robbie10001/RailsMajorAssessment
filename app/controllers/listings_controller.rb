@@ -1,10 +1,11 @@
 class ListingsController < ApplicationController 
     def listing
-    
+
     end 
 
     def newcoin
-
+        params[:coin]
+        @newcoin = Coin.create(condition: params[:description])
     end 
 
     def updatecoin
