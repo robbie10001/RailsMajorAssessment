@@ -21,6 +21,10 @@ delete "/listing", to: "listings#deletecoin", as: "deletecoin"
 post "/buycoins", to: "listings#search", as: "buypagesearch"
 post "/buycoins/predecimal", to: "listings#search", as: "predecimalpagesearch"
 post "/buycoins/postdecimal", to: "listings#search", as: "postdecimalpagesearch"
+#post "/coins", to: "listings#listing"
+#get "/coinses", to: "listings#listing"
+
+#post   method listing  "coins"
 #users controller(don't need this because of devise)
 get "/signin", to: "users#signin", as: "signin"
 patch "/signin", to: "users#updateprofile", as: "updateprofile"
