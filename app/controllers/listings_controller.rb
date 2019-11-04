@@ -21,7 +21,7 @@ We print on our listing page "something ain't right" and we reload the listing p
             )
             redirect_back(fallback_location: listing_path)
         else 
-            puts @newcoin.errors.full_messages 
+           # puts @newcoin.errors.full_messages 
             puts "something ain't right!"
             redirect_back(fallback_location: listing_path)
         end 
@@ -33,7 +33,9 @@ In this method we create an instance variable.
 This variable is then equal to the coins that a signed in user has.
 =end
     def listing
-    @usercoins = current_user.coins 
+        if user_signed_in?
+            @usercoins = current_user.coins
+        end 
     end 
 
     def updatecoin

@@ -9,6 +9,7 @@
     <div>
         <h2 class= "headings"> ADD A NEW COIN FOR SALE </h2>
     </div>
+    <%if user_signed_in?%>
     <div class= "forms">
         <%= form_with(model: @newcoin, local: true) do |table| %>
         <div class = "formelements">
@@ -52,6 +53,7 @@
                 </tr>
             </thead>
             <tbody>
+                <%if user_signed_in?%>
                 <% @usercoins.each do |coin| %>
                 <tr>
                     <td class="currentcoinsales"> <%= coin.denomination %>  </td>
@@ -60,14 +62,39 @@
                     <td class="currentcoinsales"> <%= coin.price %>  </td>
                 </tr>
                 <% end %>
+                <% end %>
             </tbody>
         </table>
     </div>
     <div>
+     <% end %>
+    <div>
+<p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as<%= current_user.email %>
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+</div>
+<div>
+  <section class="buttonloginsignin">
+  <%= link_to "LOGIN", new_user_session_path, class:"searchandlogin1" %> 
+  </section>
+  <section class="buttonloginsignin">
+  <%= link_to "REGISTER", new_user_registration_path, class:"searchandlogin1"  %> 
+  </section>
+</div>
+<% end %>
+</p>
         <footer class="footer">
             <a href="#top">Back to Top</a>
             <p> Posted by: Robbie Colborne</p>
             &copy; Copyright Robbie Colborne.
         </footer>
     </div>
+   
+
+
+
+    
 </body> 

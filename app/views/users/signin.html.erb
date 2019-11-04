@@ -1,0 +1,22 @@
+<div>
+  <h1 class="headings1"> SIGN IN OR REGISTER <h1>
+</div>
+<div>
+  <h2 class="headings"> Make a new account or sign-in to your existing account! </h2>
+</div>
+<p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as<%= current_user.email %>
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+</div>
+<div>
+  <section class="buttonloginsignin">
+  <%= link_to "LOGIN", new_user_session_path, class:"searchandlogin1" %> 
+  </section>
+  <section class="buttonloginsignin">
+  <%= link_to "REGISTER", new_user_registration_path, class:"searchandlogin1"  %> 
+  </section>
+</div>
+<% end %>

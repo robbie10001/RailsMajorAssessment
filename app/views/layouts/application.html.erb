@@ -17,24 +17,26 @@
     <div>
         <%= render "shared/nav_bar" %>
     </div>
+<% if false %>
 <div>
-  <h1> SIGN IN OR REGISTER <h1>
-</div>
-<div>
-  <h2> Make a new account or sign-in to your existing account! </h2>
-</div>
-
 <p class="navbar-text float-right">
 <% if user_signed_in? %>
   Logged in as<%= current_user.email %>
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+</div>
+<div>
+  <section class="buttonloginsignin">
+  <%= link_to "LOGIN", new_user_session_path, class:"searchandlogin1" %> 
+  </section>
+  <section class="buttonloginsignin">
+  <%= link_to "REGISTER", new_user_registration_path, class:"searchandlogin1"  %> 
+  </section>
+</div>
 <% end %>
 </p>
-
+<% end %>
 <% if false %>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
@@ -43,12 +45,6 @@
     ...
   </ul>
 <% end %>
- <div>
-    <footer class="footer">
-        <a href="#top">Back to Top</a>
-        <p> Posted by: Robbie Colborne</p>
-        &copy; Copyright Robbie Colborne.
-    </footer>
-</div>
+ 
   </body>
 </html>
