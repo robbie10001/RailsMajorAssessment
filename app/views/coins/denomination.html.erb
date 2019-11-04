@@ -2,31 +2,15 @@
     <div>
         <%= render "shared/nav_bar" %>
     </div>
-
-<ul>
-    <% @coins.each do |coin| %>
-        
-    <li>
-        <%="#{coin.denomination}, this coin is on offer for #{coin.price}, the coins condition is rated #{coin.condition}, and was minted in #{coin.mint_year}"%>
-        
-<%
-=begin %>
-        <%=coin.denomination%>
-        <%=coin.price%>
-        <%=coin.condition%>
-        <%=coin.mint_year%>
-    </li>
-    <% end %>
-</ul>
-
-<%
-=end %>
- <% end %>
-
- <div>
+    <div>
+        <ul>
+            <% @coins.each do |coin| %>
+        <li>
+            <%="#{coin.denomination}, this coin is on offer for #{coin.price}, the coins condition is rated #{coin.condition}, and was minted in #{coin.mint_year}"%>          
+        <% end %>
+    <div>
         <%= render "shared/footer" %>
     </div>
-
 </body>
  
 

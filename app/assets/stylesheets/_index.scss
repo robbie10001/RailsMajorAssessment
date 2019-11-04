@@ -1,0 +1,84 @@
+.searchbar {
+    text-align: center;
+}
+
+.alignleft {
+    text-align: left;
+}
+.alignright {
+    text-align: right;
+}
+
+
+.topnav {
+    background-color: white;
+    text-align: center;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    font-size: 140%;
+}
+
+.topnav :visited {
+    color: black;
+}
+.title {
+    text-align: center;
+    margin-top: 80px; 
+
+}
+.photo {
+   text-align: center;
+   
+
+}
+
+.headings {
+    text-align: center;
+}
+
+body {
+    background-color: rgb(136, 136, 255); 
+}
+
+.footer {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.paragraphstyle {
+    width: 85%;
+    text-align: center;
+    margin-left: 7%;
+}
+
+.forms {
+    width: 80%;
+    padding-left: 2%;
+    margin-left: 7%; 
+    box-sizing: border-box;
+    border: 5px solid black;
+    padding-bottom: 2%;
+
+}
+
+.formelements {
+    padding-top: 2%;
+    
+    
+}
+.rob {
+    width: 85%;
+    padding: 3%;
+    border: 2px solid black;  
+}
+
+.conditionsearchbar {
+    width: 20%;
+    border: 2px solid black;  
+}
+.currentcoinsales {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black; 
+ 
+}

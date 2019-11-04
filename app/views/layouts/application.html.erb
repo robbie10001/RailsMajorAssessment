@@ -14,6 +14,15 @@
     <p class="alert"><%= alert %></p>
     <%= yield %>
 
+    <div>
+        <%= render "shared/nav_bar" %>
+    </div>
+<div>
+  <h1> SIGN IN OR REGISTER <h1>
+</div>
+<div>
+  <h2> Make a new account or sign-in to your existing account! </h2>
+</div>
 
 <p class="navbar-text float-right">
 <% if user_signed_in? %>
@@ -26,22 +35,20 @@
 <% end %>
 </p>
 
-<ul class="navbar-nav mr-auto">
+<% if false %>
+  <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
       <a class="nav-link" href="/ideas">Ideas</a>
     </li>
     ...
   </ul>
-
-
-
-
-
-
-
-
-
-
-
+<% end %>
+ <div>
+    <footer class="footer">
+        <a href="#top">Back to Top</a>
+        <p> Posted by: Robbie Colborne</p>
+        &copy; Copyright Robbie Colborne.
+    </footer>
+</div>
   </body>
 </html>

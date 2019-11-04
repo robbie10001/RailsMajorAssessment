@@ -4,57 +4,70 @@
         <%= render "shared/nav_bar" %>
     </div>
     <div>
-        <h1> MY COINS </h1>
+        <h1 class= "headings"> MY COINS </h1>
     </div>
     <div>
-        <h2> ADD A NEW COIN FOR SALE </h2>
+        <h2 class= "headings"> ADD A NEW COIN FOR SALE </h2>
     </div>
-    <%= form_with(model: @newcoin, local: true) do |form| %>
-    
-    <div>
-        <%= form.label :description %>
-        <%= form.text_field :description %>
+    <div class= "forms">
+        <%= form_with(model: @newcoin, local: true) do |table| %>
+        <div class = "formelements">
+            <%= table.label :description %>
+            <%= table.text_field :description, class:"rob"%> 
+        </div>
+        <div class = "formelements">
+            <%= table.label :denomination %>
+            <%= table.text_field :denomination, class:"conditionsearchbar" %>
+        </div>
+        <div class = "formelements">
+            <%= table.label :mint_year %>
+            <%= table.text_field :mint_year, class:"conditionsearchbar" %>
+        </div>
+        <div class = "formelements">
+            <%= table.label :condition %>
+            <%= table.number_field :condition, max: 5, min:0, class:"conditionsearchbar" %>
+        </div>
+        <div class = "formelements">
+            <%= table.label :price %>
+            <%= table.text_field :price, class:"conditionsearchbar" %>
+        </div>
+            <%-# can add on the ability to add images as a strech goal if time allow for it -%>
+        <div class = "formelements">
+            <%= submit_tag("List Coin") %>
+        </div>
     </div>
-    <div>
-        <%= form.label :denomination %>
-        <%= form.text_field :denomination %>
-    </div>
-    <div>
-        <%= form.label :mint_year %>
-        <%= form.text_field :mint_year %>
-    </div>
-    <div>
-        <%= form.label :condition %>
-        <%= form.number_field :condition, max: 5, min:0 %>
-        
-   
-    </div>
-    <div>
-        <%= form.label :price %>
-        <%= form.text_field :price %>
-    </div>
-    <%-# can add on the ability to add images as a strech goal if time allow for it -%>
-    <div>
-        <%= submit_tag("List Coin") %>
-    </div>
-    <div>
-        <h2> MY CURRENT COINS FOR SALE </h2>
 
+     <% end %>
+    <div>     
+        <h2 class="headings"> MY CURRENT COINS FOR SALE </h2>
     </div>
- 
-<% end %>
-
-
-
-
-
-
+    <div class= "forms">
+        <table> 
+            <thead>
+                <tr>
+                    <th class="currentcoinsales">Denomination</th>
+                    <th class="currentcoinsales">Description</th>
+                    <th class="currentcoinsales">Condition</th>
+                    <th class="currentcoinsales">Price</th>   
+                </tr>
+            </thead>
+            <tbody>
+                <% @usercoins.each do |coin| %>
+                <tr>
+                    <td class="currentcoinsales"> <%= coin.denomination %>  </td>
+                    <td class="currentcoinsales"> <%= coin.description %>  </td>
+                    <td class="currentcoinsales"> <%= coin.condition %>  </td>
+                    <td class="currentcoinsales"> <%= coin.price %>  </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
     </div>
     <div>
         <footer class="footer">
-        <a href="#top">Back to Top</a>
-        <p> Posted by: Robbie Colborne</p>
-        &copy; Copyright Robbie Colborne.
+            <a href="#top">Back to Top</a>
+            <p> Posted by: Robbie Colborne</p>
+            &copy; Copyright Robbie Colborne.
         </footer>
     </div>
 </body> 

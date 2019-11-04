@@ -20,15 +20,12 @@ class CoinsController < ApplicationController
     def postdecimalsearch
 
     end 
-
+=begin we create a method denomination. Within this method we look at all coins. 
+we then create an instance variable that searches through our coins for our coins based on denomination.
+=end
     def denomination
-        #params[:denomination]
         params[:coin]
         @coins = Coin.where(denomination: params[:denomination])
-        #variable coins - coin.where 
-        
-        
-
     end
 
 end 

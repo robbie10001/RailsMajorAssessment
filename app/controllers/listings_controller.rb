@@ -1,17 +1,5 @@
 class ListingsController < ApplicationController 
-    #def listing
-     #  @newcoin = Coin.new
-        
-    #end 
-
-   def uploadedcoin
-      @newcoin = Coin.new
-   end 
-#
- #   end 
-
-
-
+ 
 =begin
 we create a method call newcoin
 within this method we start in if/else statement
@@ -24,23 +12,28 @@ We print on our listing page "something ain't right" and we reload the listing p
 =end
     def newcoin
         if user_signed_in?
-            #params[:coin]
-            # @usercoin = Coin.new(params[:coin])
             current_user.coins.create(
                 denomination: params[:denomination], 
                 price: params[:price],
                 condition: params[:condition],
                 description: params[:description],
                 mint_year: params[:mint_year]
-
             )
             redirect_back(fallback_location: listing_path)
-            
         else 
             puts @newcoin.errors.full_messages 
             puts "something ain't right!"
             redirect_back(fallback_location: listing_path)
         end 
+    end 
+=begin
+we create a method for the ability to show a coin. 
+In this case we have called it listing.
+In this method we create an instance variable.
+This variable is then equal to the coins that a signed in user has.
+=end
+    def listing
+    @usercoins = current_user.coins 
     end 
 
     def updatecoin
@@ -57,11 +50,14 @@ If the search term entered matches any of our coin denominations then we list th
 If the search term does not match any of our coin denominations, then we reload the page and return to the page "Please make sure to search with some data"
 =end
     def search 
-        if Coin.all.pluck(:denomination).include?(params[:search]) == true 
-            redirect_to(coindenomination_path(params[:search]))
-        else 
-            redirect_back(fallback_location: buycoins_path, alert: "Please make sure to search with some data") 
+        denominationcontrol = Coin.all.pluck(:denomination)
+        denominationcontrol.each do |coin| 
+        if coin.slice(0...3) == params[:search].downcase.slice(0...3)
+            redirect_to(coindenomination_path(coin)) 
+            return 
         end
+    end 
+        redirect_back(fallback_location: buycoins_path, alert: "Please make sure to search with some data") 
 
     end 
 end 
