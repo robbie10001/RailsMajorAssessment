@@ -7,18 +7,20 @@
     </div>
     <div class="alignleft">
         <h2> PHONE <h2>
-         <%= image_tag ("contactmephone.jpg")%>
+         <%= image_tag ("contactmecard.png")%>
     </div>
     <div class="searchbar">
         <h2> EMAIL <h2>
-        <%= image_tag ("contactmeemail.jpg")%>
+        <%= mail_to "robbie_c1000@hotmail.com", (image_tag("contactmeemail")) %> 
+
     </div>
     <div class="alignright">
         <h2> FACEBOOK <h2>
-        <%= image_tag ("contactmefacebook.jpg")%>
+        <%= link_to image_tag("contactmefacebook.jpg", class: :facebook_icon, alt: "Facebook"), "https://www.facebook.com/robbie.colborne", target: :_blank %>
     </div>
     <div>
         <%= render "shared/footer" %>
     </div>
+
 </body>
 

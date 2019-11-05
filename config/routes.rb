@@ -23,13 +23,14 @@ post "/buycoins/predecimal", to: "listings#search", as: "predecimalpagesearch"
 post "/buycoins/postdecimal", to: "listings#search", as: "postdecimalpagesearch"
 #post "/coins", to: "listings#listing"
 #get "/coinses", to: "listings#listing"
+get "/profile", to: "profile#index", as: "profile"
 
 #post   method listing  "coins"
 #users controller(don't need this because of devise)
-get "/signin", to: "users#signin", as: "signin"
-patch "/signin", to: "users#updateprofile", as: "updateprofile"
-delete "/signin", to: "users#deleteprofile", as: "deleteprofile"
-post "/signin", to: "users#createprofile", as: "createprofile"
+#get "/signin", to: "users#signin", as: "signin"
+#patch "/signin", to: "users#updateprofile", as: "updateprofile"
+#delete "/signin", to: "users#deleteprofile", as: "deleteprofile"
+#post "/signin", to: "users#createprofile", as: "createprofile"
 
 post "/buycoins/postdecimal/:denomination", to: "coins#findcoins", as: "coinage"
 

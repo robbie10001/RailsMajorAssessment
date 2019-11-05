@@ -2,7 +2,8 @@
     <%= link_to("Home", root_path) %>
     <%= link_to("Buy Coins", buycoins_path) %>
     <%= link_to("Sell Coins", listing_path) %>
-    <%= link_to("Sign in/Register", signin_path) %>
+
+    <%= link_to("Sign in/Register", user_signed_in? ? profile_path : new_user_session_path) %>
     <%= link_to("Contact Us", contactus_path) %>
 </div>
 

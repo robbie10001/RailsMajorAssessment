@@ -3,17 +3,36 @@
         <%= render "shared/nav_bar" %>
     </div>
     <div>
-        <ul>
-            <% @coins.each do |coin| %>
-        <li>
-            <%="#{coin.denomination}, this coin is on offer for #{coin.price}, the coins condition is rated #{coin.condition}, and was minted in #{coin.mint_year}"%>          
-        <% end %>
+        <h1> Our Current Coins For Sale </h1>  
+    </div>
+
+
+    <div class= "forms">
+        <table> 
+            <thead>
+                <tr>
+                    <th class="currentcoinsales">Denomination</th>
+                    <th class="currentcoinsales">Description</th>
+                    <th class="currentcoinsales">Condition</th>
+                    <th class="currentcoinsales">Price</th>   
+                </tr>
+            </thead>
+            <tbody>
+             <tbody>
+                <% @coins.each do |coin| %>
+                <tr>
+                    <td class="currentcoinsales"> <%= coin.denomination %>  </td>
+                    <td class="currentcoinsales"> <%= coin.description %>  </td>
+                    <td class="currentcoinsales"> <%= coin.condition %>  </td>
+                    <td class="currentcoinsales"> <%= coin.price %>  </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
     <div>
         <%= render "shared/footer" %>
     </div>
+
 </body>
- 
-
-
-    
 

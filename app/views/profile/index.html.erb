@@ -1,0 +1,59 @@
+
+<p class="navbar-text float-right">
+<% if user_signed_in? %>
+
+<div>
+  <section>
+    <h1> <%= "Welcome #{current_user.name} to your profile page" %> </h1>
+  </section>
+  <section>
+    <h2> <%= "Your Profile Information" %></h2> 
+  </section> 
+  <section>
+    <div class= "forms">
+        <table> 
+            <thead>
+                <tr>
+                    <th class="currentcoinsales">Name</th>
+                    <th class="currentcoinsales">Address</th>
+                    <th class="currentcoinsales">Email</th>  
+                </tr>
+            </thead>
+            <tbody>
+             <tbody>
+                <tr>
+                    <td class="currentcoinsales"> <%= current_user.name %>  </td>
+                    <td class="currentcoinsales"> <%= current_user.address %>  </td>
+                    <td class="currentcoinsales"> <%= current_user.email %>  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div> 
+  <div>
+  </section> 
+  <section class="buttonloginsignin">
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
+  </section>
+  <section class="buttonloginsignin">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  </section>
+  </div>
+  <div>
+        <%= render "shared/footer" %>
+    </div>
+<% else %>
+<div>
+  <h1 class="headings1"> REGISTER <h1>
+</div>
+<div>
+  <h2 class="headings"> Make a new account! </h2>
+</div>
+<div>
+  <section class="buttonloginsignin">
+  <%= link_to "LOGIN", new_user_session_path, class:"searchandlogin1" %> 
+  </section>
+  <section class="buttonloginsignin">
+  <%= link_to "REGISTER", new_user_registration_path, class:"searchandlogin1"  %> 
+  </section>
+</div>
+<% end %>

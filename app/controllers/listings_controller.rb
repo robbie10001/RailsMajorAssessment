@@ -54,6 +54,7 @@ If the search term does not match any of our coin denominations, then we reload 
     def search 
         denominationcontrol = Coin.all.pluck(:denomination)
         denominationcontrol.each do |coin| 
+        if coin == nil then next end 
         if coin.slice(0...3) == params[:search].downcase.slice(0...3)
             redirect_to(coindenomination_path(coin)) 
             return 
@@ -62,4 +63,11 @@ If the search term does not match any of our coin denominations, then we reload 
         redirect_back(fallback_location: buycoins_path, alert: "Please make sure to search with some data") 
 
     end 
+    
+    def signin
+
+    end
+
+
+
 end 

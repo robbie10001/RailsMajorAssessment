@@ -3,13 +3,14 @@
     <div>
         <%= render "shared/nav_bar" %>
     </div>
+
+    <%if user_signed_in?%>
     <div>
         <h1 class= "headings"> MY COINS </h1>
     </div>
     <div>
         <h2 class= "headings"> ADD A NEW COIN FOR SALE </h2>
     </div>
-    <%if user_signed_in?%>
     <div class= "forms">
         <%= form_with(model: @newcoin, local: true) do |table| %>
         <div class = "formelements">
@@ -75,6 +76,8 @@
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
+<div>
+    <h1> Sign In or Register To Sell Your Coins! </h1>
 </div>
 <div>
   <section class="buttonloginsignin">
