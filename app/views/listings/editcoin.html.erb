@@ -1,17 +1,40 @@
-<h1> WHAT'S UP </h1>
-   
 <body>
+    <div>
+        <h1> Coin to Update </h1>
+        <h2> Current Coin Information </h2>
+    </div>
     <div>
         <%= render "shared/nav_bar" %>
     </div>
-
-    <%if user_signed_in?%>
     <div>
-        <h1 class= "headings"> UPDATE COINS </h1>
+        <table> 
+            <thead>
+                <tr>
+                    <th class="currentcoinsales">Denomination</th>
+                    <th class="currentcoinsales">Description</th>
+                    <th class="currentcoinsales">Condition</th>
+                    <th class="currentcoinsales">Price</th>   
+                    <th class="currentcoinsales">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="currentcoinsales"> <%= @cointoerase.denomination %>  </td>
+                    <td class="currentcoinsales"> <%= @cointoerase.description %>  </td>
+                    <td class="currentcoinsales"> <%= @cointoerase.condition %>  </td>
+                    <td class="currentcoinsales"> <%= @cointoerase.price %>  </td>
+                    <td class="currentcoinsales"> <%= image_tag @cointoerase.picture if @cointoerase.picture.attached? %> 
+                </tr>
+            </tbody> 
+         </table>
     </div>
-    <div class= "forms">
-        <%= form_with(model: @coin, local: true) do |form| %>
-        <div class = "formelements">
+    </div>
+    <div>
+        <h1> UPDATE COINS </h1>
+    </div>
+    <div>
+        <%= form_with(model: @destroyedcoin, local: true) do |form| %>
+        <div>
             <%= form.label :description %>
             <%= form.text_field :description, class:"rob"%> 
         </div>
@@ -40,6 +63,9 @@
             <%= submit_tag("Update Coin") %>
         </div>
     </div>
+    <div>
     <%= link_to 'Back', listing_path %>
+    </div>
+</body>
 <%end %>
-<%end %>
+

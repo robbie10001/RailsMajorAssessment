@@ -59,19 +59,38 @@ This variable is then equal to the coins that a signed in user has.
     end 
 
     def editcoin
+        @cointoerase = current_user.coins.find(params[:id])
        @coin = Coin.find(params[:id])
+ 
 
     end 
 
-    def deletecoin
-        if user_signed_in?
+
+=begin
+ if user_signed_in?
+            
             @coin = current_user.coins.find(params[:id])
             @coin.delete(
                 coin: params[:coin], 
                 )
                 #picture: params[:picture]
-            puts "Your Coin has sucessfully updated!"
             redirect_back(fallback_location: listing_path)
+        else 
+           # puts @newcoin.errors.full_messages 
+            puts "something ain't right!"
+            redirect_back(fallback_location: listing_path)
+        end 
+=end
+    def destroycoin
+        @coin = Coin.find(params[:id])
+        @delete = current_user.coins.delete(params[:id])
+        redirect_to listing_path
+    
+    end 
+    def deletecoin
+        if user_signed_in?
+            @destroycoin = current_user.coins.find(params[:id])
+            redirect_back(fallback_location: update_path)
         else 
            # puts @newcoin.errors.full_messages 
             puts "something ain't right!"
@@ -80,7 +99,9 @@ This variable is then equal to the coins that a signed in user has.
     end 
 
     def update
-
+        @coin = current_user.coins.find(params[:id])
+        redirect_to(cointodelete_path)
+        
     end 
 
  
@@ -105,6 +126,11 @@ If the search term does not match any of our coin denominations, then we reload 
     def signin
 
     end
+
+    def cointodelete
+        @cointoerase = current_user.coins.find(params[:id])
+
+    end 
 private 
    
 end 

@@ -1,0 +1,56 @@
+<body>
+    <div>
+        <h1> Delete Coin </h1>
+        <h2> Coins to Delete </h2> 
+    </div>
+    <div>
+        <div class= "forms">
+        <table> 
+            <thead>
+                <tr>
+                    <th class="currentcoinsales">Denomination</th>
+                    <th class="currentcoinsales">Description</th>
+                    <th class="currentcoinsales">Condition</th>
+                    <th class="currentcoinsales">Price</th>   
+                    <th class="currentcoinsales">Image</th>
+                    <th class="currentcoinsales">Delete Coin</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr>
+                    <td class="currentcoinsales"> <%= @cointoerase.denomination %>  </td>
+                    <td class="currentcoinsales"> <%= @cointoerase.description %>  </td>
+                    <td class="currentcoinsales"> <%= @cointoerase.condition %>  </td>
+                    <td class="currentcoinsales"> <%= @cointoerase.price %>  </td>
+                    <td class="currentcoinsales"> <%= image_tag @cointoerase.picture if @cointoerase.picture.attached? %> 
+                    <td class="currentcoinsales"> <%= link_to "Delete Coin", destroyedcoin_path, method: :delete, data: {confirm: "Are you sure?"} %> 
+ 
+                                         
+                    
+                    </td>
+                </tr>
+         
+          
+    </div>
+
+    <div>
+
+
+    </div>
+
+
+    <div>
+
+
+
+    </div>
+
+
+    <div>
+
+
+    </div>
+
+</body>
+
