@@ -1,0 +1,45 @@
+<h1> WHAT'S UP </h1>
+   
+<body>
+    <div>
+        <%= render "shared/nav_bar" %>
+    </div>
+
+    <%if user_signed_in?%>
+    <div>
+        <h1 class= "headings"> UPDATE COINS </h1>
+    </div>
+    <div class= "forms">
+        <%= form_with(model: @coin, local: true) do |form| %>
+        <div class = "formelements">
+            <%= form.label :description %>
+            <%= form.text_field :description, class:"rob"%> 
+        </div>
+        <div class = "formelements">
+            <%= form.label :denomination %>
+            <%= form.text_field :denomination, class:"conditionsearchbar" %>
+        </div>
+        <div class = "formelements">
+            <%= form.label :mint_year %>
+            <%= form.text_field :mint_year, class:"conditionsearchbar" %>
+        </div>
+        <div class = "formelements">
+            <%= form.label :condition %>
+            <%= form.number_field :condition, max: 5, min:0, class:"conditionsearchbar" %>
+        </div>
+        <div class = "formelements">
+            <%= form.label :price %>
+            <%= form.text_field :price, class:"conditionsearchbar" %>
+        </div>
+        <div>
+            <%= form.label :picture %> 
+            <%= form.file_field :picture, accept:'image/png,image/gif,image/jpeg,image/jpg' %>
+        </div>
+            <%-# can add on the ability to add images as a strech goal if time allow for it -%>
+        <div class = "formelements">
+            <%= submit_tag("Update Coin") %>
+        </div>
+    </div>
+    <%= link_to 'Back', listing_path %>
+<%end %>
+<%end %>

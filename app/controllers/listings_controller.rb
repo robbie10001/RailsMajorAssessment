@@ -17,7 +17,8 @@ We print on our listing page "something ain't right" and we reload the listing p
                 price: params[:price],
                 condition: params[:condition],
                 description: params[:description],
-                mint_year: params[:mint_year]
+                mint_year: params[:mint_year],
+                picture: params[:picture]
             )
             redirect_back(fallback_location: listing_path)
         else 
@@ -39,13 +40,50 @@ This variable is then equal to the coins that a signed in user has.
     end 
 
     def updatecoin
-
+        if user_signed_in?
+            @coin = current_user.coins.find(params[:id])
+            @coin.update(
+                denomination: params[:coin][:denomination], 
+                price: params[:coin][:price],
+                condition: params[:coin][:condition],
+                description: params[:coin][:description],
+                mint_year: params[:coin][:mint_year])
+                #picture: params[:picture]
+            puts "Your Coin has sucessfully updated!"
+            redirect_back(fallback_location: listing_path)
+        else 
+           # puts @newcoin.errors.full_messages 
+            puts "something ain't right!"
+            redirect_back(fallback_location: listing_path)
+        end 
     end 
 
+    def editcoin
+       @coin = Coin.find(params[:id])
+
+    end 
 
     def deletecoin
+        if user_signed_in?
+            @coin = current_user.coins.find(params[:id])
+            @coin.delete(
+                coin: params[:coin], 
+                )
+                #picture: params[:picture]
+            puts "Your Coin has sucessfully updated!"
+            redirect_back(fallback_location: listing_path)
+        else 
+           # puts @newcoin.errors.full_messages 
+            puts "something ain't right!"
+            redirect_back(fallback_location: listing_path)
+        end 
+    end 
+
+    def update
 
     end 
+
+ 
 =begin
 we create a method search. We then get every coin based on its denomination.
 If the search term entered matches any of our coin denominations then we list that coin and all the others of that denomination.
@@ -59,7 +97,7 @@ If the search term does not match any of our coin denominations, then we reload 
             redirect_to(coindenomination_path(coin)) 
             return 
         end
-    end 
+        end 
         redirect_back(fallback_location: buycoins_path, alert: "Please make sure to search with some data") 
 
     end 
@@ -67,7 +105,6 @@ If the search term does not match any of our coin denominations, then we reload 
     def signin
 
     end
-
-
-
+private 
+   
 end 
