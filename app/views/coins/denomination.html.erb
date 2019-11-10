@@ -16,6 +16,7 @@
                     <th class="currentcoinsales">Condition</th>
                     <th class="currentcoinsales">Price</th>   
                     <th class="currentcoinsales">Picture</th>  
+                    <th class="currentcoinsales">Buy</th>  
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
                     <td class="currentcoinsales"> <%= coin.condition %>  </td>
                     <td class="currentcoinsales"> <%= coin.price %>  </td>
                     <td class="currentcoinsales"> <%= image_tag coin.picture, :class => "userupload" if coin.picture.attached? %></td>
+                    <td class="currentcoinsales"> <%= link_to "buy", coindenomination_path(@session_id) %>  </td>
                 </tr>
                 <% end %>
             </tbody>

@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController 
-
+    before_action :set_coin, only: [:denomination, :predenomination]
     skip_before_action :verify_authenticity_token
+
     def buycoins
     
     end
@@ -26,8 +27,53 @@ we then create an instance variable that searches through our coins for our coin
     def denomination
         params[:coin]
         @coins = Coin.where(denomination: params[:denomination])
+        show = stripe 
+        @session_id = session.id
+
+
     end
 
+    def predenomination 
+        show = stripe 
+        @session_id = session.id
+
+    end 
+
+    def show
+       
+    end
+    private
+    
+    def stripe
+
+        session = Stripe::Checkout::Session.create(
+            payment_method_types: ['card'],
+            customer_email: current_user.email,
+            line_items: [{
+                name: @coin.denomination,
+                description: @coin.description,
+                amount: @coin.price,
+                currency: 'aud',
+                quantity: 1,
+            }],
+            payment_intent_data: {
+                metadata: {
+                    user_id: current_user.id,
+                    coin_id: @coin.id
+                }
+            },
+            success_url: root_url,
+            cancel_url: root_url + "buycoins"
+        )
+
+    end
+    
+    def set_coin
+        @set_coin_params = params[:denomination]
+        @coin = Coin.find_by(denomination: @set_coin_params)
+    end
+
+    
 end 
 
 =begin

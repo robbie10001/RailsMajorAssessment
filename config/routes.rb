@@ -12,6 +12,12 @@ get "/buycoins/postdecimal/search", to: "coins#postdecimalsearch", as: "postdeci
 get "/buycoins/predecimal/search", to: "coins#predecimalsearch", as: "predecimalsearch"
 get "/buycoins/postdecimal/:denomination", to: "coins#denomination", as: "coindenomination"
 get "/buycoins/predecimal/:denomination", to: "coins#predenomination", as: "precoindenomination"
+
+
+get "/buycoins/predecimal/:denomination/buy", to: "coins#buy", as: "buycoin"
+
+
+
 get "/buycoins/contact", to: "coins#contact", as: "contactus"
 #lisings_controller
 get "/listing", to: "listings#listing", as: "listing"
